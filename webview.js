@@ -1,16 +1,11 @@
-import path from 'path';
-
 module.exports = (Franz) => {
-  const getMessages = function getMessages() {
+  function getMessages() {
     let count = 0;
-    document.querySelectorAll('[data-testid="mwthreadlist-item"]').forEach((node) => {
-      if (node.querySelector('.lrazzd5p, .is6700om, .o48pnaf2')) count += 1;
-    });
-
+    count = document.querySelectorAll('[aria-label="Đánh dấu là đã đọc"][role="button"]').length;
     count += document.querySelectorAll('[role="gridcell"] .xwnonoy, [role="gridcell"] .x107p15e').length;
 
     Franz.setBadge(count);
-  };
+  }
 
   Franz.loop(getMessages);
 
