@@ -1,16 +1,10 @@
-import path from 'path';
-
 module.exports = (Franz) => {
-  const getMessages = function getMessages() {
+  function getMessages() {
     let count = 0;
-    document.querySelectorAll('[data-testid="mwthreadlist-item"]').forEach((node) => {
-      if (node.querySelector('.lrazzd5p, .is6700om, .o48pnaf2')) count += 1;
-    });
-
-    count += document.querySelectorAll('[role="gridcell"] .xwnonoy, [role="gridcell"] .x107p15e').length;
+    count += document.querySelectorAll('div[aria-label="Đoạn chat"] a[href^="/e2ee/t/"] .x6s0dn4.x1iwo8zk.x1033uif.x179ill4.x1b60jn0.x9f619.x3nfvp2.xl56j7k.x1spa7qu.x170jfvy.x1fsd2vl').length;
 
     Franz.setBadge(count);
-  };
+  }
 
   Franz.loop(getMessages);
 
